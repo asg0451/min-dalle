@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import os
 from PIL import Image
@@ -16,6 +18,7 @@ parser.add_argument('--text', type=str)
 parser.add_argument('--seed', type=int, default=0)
 parser.add_argument('--image_path', type=str, default='generated')
 parser.add_argument('--image_token_count', type=int, default=256) # for debugging
+parser.add_argument('--ascii', action='store_true')
 
 
 def ascii_from_image(image: Image.Image, size: int) -> str:
@@ -51,4 +54,5 @@ if __name__ == '__main__':
     
     if image != None:
         save_image(image, args.image_path)
-        print(ascii_from_image(image, size=128))
+        if args.ascii:
+            print(ascii_from_image(image, size=128))

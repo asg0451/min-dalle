@@ -10,3 +10,4 @@
 **/generated
 **/pretrained
 **/*.msgpack
+generated.png
